@@ -1,0 +1,115 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+  font-family: "Ubuntu", sans-serif;
+  margin-left: 60px;
+  margin-right: 60px;
+  background-color: #EDCD7B;
+  
+}
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #918D87;
+    min-height: 20vh;
+}
+header img{
+    margin-right: 30px;
+    margin-left: 30px;
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    transition: transform 0.5s ease;
+    
+}
+header h1{
+    color:#EDCD7B;
+    transition: transform 0.5s ease;
+}
+main{
+    background-color: #a19e98;
+    display: flex;
+    flex-direction: column;
+}
+main h2{
+    background-color: #a7a5a2;
+    margin-top: 20px;
+}
+.botones{
+  display: flex;
+  justify-content: center;
+  
+}
+.botones a{
+    margin-right: 25px;
+    text-decoration: none;
+    background-color: #EDCD7B;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    color: black;
+    box-shadow: -4px 4px 8px 1px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    border-radius: 20px;
+}
+.carousel-container {
+    width: 90%;        
+    margin:  auto;    
+}
+
+.carousel-container img {
+    height: 250px;     
+    object-fit: cover; 
+} 
+
+footer{
+    background-color: #7e7b77;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+footer img{
+    height: 30px;
+    border-radius: 20px;
+    transition: transform 0.5s ease;
+}
+
+
+
+
+
+
+
+
+.botones a:hover{
+    background-color: #d39753;
+    transform: scale(1.2);
+    transition: all 1.5s;
+}
+#p1:target{
+    background-color: rgba(232, 201, 89, 0.5);
+}
+#p2:target{
+    background-color: rgba(232, 201, 89, 0.5);
+}
+#p3:target{
+    background-color: rgba(232, 201, 89, 0.5);
+}
+header h1:hover{
+     transform: scale(1.05) ;
+}
+header img:hover{
+    transform: scale(1.1) rotate(8deg);
+
+    rotate: 2px;
+    transform: scale(1.05) rotate(3deg);
+}
+footer img:hover{
+     transform: scale(1.5) ;
+}
