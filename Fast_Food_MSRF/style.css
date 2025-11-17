@@ -10,25 +10,37 @@ html{
   background-color: #EDCD7B;
   
 }
-header{
+/* estilos del header */
+
+.logo {
     display: flex;
-    justify-content: center;
     align-items: center;
-    background-color: #918D87;
-    min-height: 20vh;
 }
-header img{
-    margin-right: 30px;
-    margin-left: 30px;
-    width: 80px;
+
+/* la imagen tiene animacion */
+.logo img {
+    margin-right: 20px;
     height: 80px;
     border-radius: 10px;
     transition: transform 0.5s ease;
-    
 }
-header h1{
-    color:#EDCD7B;
-    transition: transform 0.5s ease;
+
+/* desde "header" se puede moificar el color de el header */
+header {
+    height: 150px;
+    background-color: rgb(135, 134, 134);
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+/* fuente italiza que se usa para el titulo */
+.titulos {
+    color: rgb(255, 209, 5);
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    text-align: left;
 }
 main{
     background-color: #a19e98;
