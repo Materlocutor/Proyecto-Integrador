@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy Food</title>
+    <!-- link fuente -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+  <!-- links bootstrap -->
+  
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="shortcut icon" href="imagenes/logo.png.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="stylerMER.css">
+</head>
+<body>
+        <header>
+      <div class="logo">
+        <!-- imagen -->
+        <img src="imagenes/logo.png.jpeg" alt="logo">
+            <h1 class="titulos">easy food<br>mas que comida entregamos felicidad</h1>
+      </div>
+    </header>
+      <!-- Nav -->
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">menu</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Presentacion Empresa</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="productos.html">Productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="plantillaFormulario.html">Formulario</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="MER.html">MER</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="codigoJava.html">Ejercicio Logica de programación</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contactos.html">Contactos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="integrantes.html">Integrantes</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- main -->
+  <main>
+
+<h2 class="titulocentro">Modelo Entidad Relación</h2>
+<img src="imagenes/MER.jpeg" alt="MER" class="MER">
+
+ <h2 class="titulocentro">Script de la Base de Datos</h2>
+
+  <textarea>
+
+    CREATE DATABASE Easy_Food;
+GO
+
+USE Easy_Food;
+GO
+
+CREATE TABLE Usuarios (usuarios_id INT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    direccion VARCHAR(200),
+    contrasena VARCHAR(100) NOT NULL);
+
+CREATE TABLE Direcciones (id_direccion INT PRIMARY KEY,
+    id_usuario INT NOT NULL,
+    direccion VARCHAR(200) NOT NULL,
+
+    FOREIGN KEY (id_usuario) REFERENCES Usuarios(usuarios_id));
+
+CREATE TABLE Repartidores (repartidor_id INT IDENTITY(1,1) PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    placa VARCHAR(20),
+    contrasena VARCHAR(100),
+    numero_pase VARCHAR(50));
+
+CREATE TABLE Proveedores (proveedores_id INT IDENTITY(1,1) PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    contacto VARCHAR(100));
+
+CREATE TABLE Productos (productos_id INT IDENTITY(1,1) PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    precio DECIMAL(10,2) NOT NULL,
+    descripcion VARCHAR(300),
+    id_proveedor INT NOT NULL,
+
+    FOREIGN KEY (id_proveedor) REFERENCES Proveedores(proveedores_id));
+
+CREATE TABLE Pedidos (id_pedidos INT IDENTITY(1,1) PRIMARY KEY,
+    id_usuarios INT NOT NULL,
+    id_proveedor INT NOT NULL,
+    id_direccion INT NOT NULL,
+    repartidor_id INT,
+    fecha_pedido DATE NOT NULL,
+    total DECIMAL(10,2) NOT NULL,
+
+    FOREIGN KEY (id_usuarios) REFERENCES Usuarios(usuarios_id),
+    FOREIGN KEY (id_proveedor) REFERENCES Proveedores(proveedores_id),
+    FOREIGN KEY (id_direccion) REFERENCES Direcciones(id_direccion),
+    FOREIGN KEY (repartidor_id) REFERENCES Repartidores(repartidor_id));
+
+CREATE TABLE Detalle_Pedidos (detalle_id INT IDENTITY(1,1) PRIMARY KEY,
+    pedido_id INT NOT NULL,
+    producto_id INT NOT NULL,
+    cantidad INT NOT NULL,
+    precio_unitario DECIMAL(10,2) NOT NULL,
+
+    FOREIGN KEY (pedido_id) REFERENCES Pedidos(id_pedidos),
+    FOREIGN KEY (producto_id) REFERENCES Productos(productos_id));
+
+    </textarea>
+
+
+  </main>
+  <!-- footer -->
+   <footer>
+    <h3 class="titulos">contactanos en nuestras redes</h3>
+    <div class="redes">
+      <img src="imagenes/IG-Logo-PNG-Transparent-Image.png" alt="ig">
+      <img src="imagenes/fb1.png" alt="facebook">
+      <img src="imagenes/wpp2.png" alt="wpp">
+    </div>
+    
+
+  </footer>
+
+    
+</body>
+</html>

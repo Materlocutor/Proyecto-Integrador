@@ -1,0 +1,114 @@
+/* selector universal */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* se establece la fuente, el color de fondo, y un margen */
+html {
+    font-family: "Ubuntu", sans-serif;
+    margin-left: 60px;
+    margin-right: 60px;
+    
+
+}
+
+/* estilos del header */
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+/* la imagen tiene animacion */
+.logo img {
+    margin-right: 20px;
+    height: 80px;
+    border-radius: 10px;
+    transition: transform 0.5s ease;
+}
+
+/* desde "header" se puede moificar el color de el header */
+header {
+    height: 150px;
+    background-color: rgb(57, 57, 57);
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+/* fuente italiza que se usa para el titulo */
+.titulos {
+    color: rgb(255, 209, 5);
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+    text-align: left;
+}
+/* el main tiene su color de fondo, si no se quiere, se puede cambiar de "fel:column" y borrarlo para que quede en flex row que tiene por defecto */
+main {
+   
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    /* el padding se utliza para alejar los elementos de los bordes */
+    padding: 20px;
+        flex-wrap: wrap;
+   
+}
+.principal{
+    text-align: center;
+}
+.card-body{
+    background-color: rgb(57, 57, 57);
+    color: rgb(255, 209, 5);
+    border: black ;
+}
+.nombre{
+    font-weight: 700;
+}
+/* el footer y su moedlo de caja, su color, y sus hijos centrados */
+footer {
+    background-color: rgb(57, 57, 57);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+h3{
+    color: rgb(255, 209, 5);
+}
+/* las imagenes tienen su tamaño y animacion */
+footer img {
+    height: 30px;
+    border-radius: 20px;
+    transition: transform 0.5s ease;
+}
+
+/* codigo animacion de la imagen del header*/
+.logo img:hover {
+    transform: scale(1.1) rotate(8deg);
+    rotate: 2px;
+    transform: scale(1.05) rotate(3deg);
+}
+
+/* animacion logos footer */
+footer img:hover {
+    transform: scale(1.5);
+}
+.card:hover{
+    transform: scale(1.08) ;
+    transform: scale(1.03);
+}
+@media (max-width:554px){
+html{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.titulos{
+    font-size: 16px;
+}
+}

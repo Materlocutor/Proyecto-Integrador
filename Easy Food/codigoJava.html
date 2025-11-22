@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Easy Food</title>
+  <!-- link fuente -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+    rel="stylesheet">
+
+  <!-- links bootstrap -->
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="shortcut icon" href="imagenes/logo.png.jpeg" type="image/x-icon">
+  <link rel="stylesheet" href="codigoJava.css">
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <!-- se debe adjuntar el link de la imagen aqui -->
+      <img src="imagenes/logo.png.jpeg" alt="logo">
+      <h1 class="titulos">easy food<br>mas que comida entregamos felicidad</h1>
+    </div>
+  </header>
+    <!-- Nav -->
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">menu</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Presentacion Empresa</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="productos.html">Productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="plantillaFormulario.html">Formulario</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="MER.html">MER</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="codigoJava.html">Ejercicio Logica de programación</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contactos.html">Contactos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="integrantes.html">Integrantes</a>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Ejercicio logica de programacion -->
+  <main>
+    <h2 class="titulos">
+      Ejercicio logica de programacion: Java burguer
+    </h2>
+    <pre>
+<code>
+
+public class Main {
+     static void main() {
+        Scanner sc = new Scanner(System.in);
+        String opcion;
+        double precio;
+        String nombrePedido;
+        int opcionCombo;
+        int opcionAcompañamiento;
+        double precioAcompañamiento = 0;
+        String nombreAcompañamiento = "";
+        int opcionBebida;
+        double precioBebida = 0;
+        String nombreBebida = "";
+        double descuentoCombo = 0;
+        double subtotal = 0;
+        int opcionMartes = 0;
+        double precioDescuentoMartes = 0;
+        int opcionFidelidad = 0;
+        double descuentoFidelidad = 0;
+        double total = 0;
+
+        System.out.println("""
+                Bienvenido/a a nuestro sistema de pedidos Java Burguer
+                Estas son nuestras opciones:
+                1. Hamburguesa Clásica $8.50
+                2. Sandwich de pollo $.7.75
+                3. Wrap vegetariano $7.00""");
+
+        opcion = sc.next();
+
+        switch (opcion){
+            case "1" -> {
+                precio = 8.50;
+                nombrePedido = "Hamburguesa Clásica";
+            }
+            case "2" -> {
+                precio = 7.75;
+                nombrePedido = "Sandwich de pollo";
+            }case "3" ->{
+                precio = 7.00;
+                nombrePedido = "Wrap vegetariano";
+            }
+            default -> {
+                System.out.println("Opción inválida. Adios!");
+                return;
+            }
+        }
+
+        System.out.println("""
+                        Desea convertir su orden en combo
+                        Ingrese el numero 1 en caso de que sí"""
+                );
+        opcionCombo = sc.nextInt();
+
+        if(opcionCombo == 1){
+            System.out.println("""
+                    Estas son nuestras opciones de acompañamiento:
+                    1. Papas fritas $2.50
+                    2. Aros de cebolla 3.00
+                    3. Ninguna""");
+            opcionAcompañamiento = sc.nextInt();
+
+            if(opcionAcompañamiento == 1){
+                precioAcompañamiento = 2.50;
+                nombreAcompañamiento = "Papas fritas";
+            } else if (opcionAcompañamiento == 2) {
+                precioAcompañamiento = 3.00;
+                nombreAcompañamiento = "Aros de cebolla";
+            } else if (opcionAcompañamiento == 3) {
+                precioAcompañamiento = 0;
+                nombreAcompañamiento = "";
+            }else {
+                System.out.println("Opción incorrecta. Adios!");
+                return;
+            }
+
+            System.out.println("""
+                    Estas son las opciones de nuestras bebidas
+                    1. Agua $1.50
+                    2. Gaseosa $2.00
+                    3. Ninguna""");
+            opcionBebida = sc.nextInt();
+
+            if(opcionBebida == 1){
+                precioBebida = 1.50;
+                nombreBebida = "Agua";
+            } else if (opcionBebida == 2) {
+                precioBebida = 2.00;
+                nombreBebida = "Gaseosa";
+            } else if (opcionBebida == 3) {
+                precioBebida = 0;
+                nombreBebida = "";
+            }else {
+                System.out.println("Opción inválida");
+                return;
+            }
+        }
+
+        subtotal = precio + precioAcompañamiento + precioBebida;
+
+        if( opcion.equals("1")){
+            System.out.println("Ingrese 1 si es martes");
+            opcionMartes= sc.nextInt();
+            if(opcionMartes==1){
+                precioDescuentoMartes = precioAcompañamiento;
+            }else   if(precio>0 && precioAcompañamiento>0 && precioBebida>0){
+                descuentoCombo =2;
+            }
+        }else {
+            if(precio>0 && precioAcompañamiento>0 && precioBebida>0){
+                descuentoCombo =2;
+            }
+        }
+
+        System.out.println("Ingrese 1 si es cliente fiel");
+        opcionFidelidad = sc.nextInt();
+
+        if(opcionFidelidad == 1){
+            descuentoFidelidad = subtotal * 0.10;
+        }
+
+        total = subtotal -descuentoCombo - descuentoFidelidad - precioDescuentoMartes;
+
+
+        System.out.println("Este es el resumen de su compra");
+        System.out.println("-----------------------");
+        System.out.println("Los productos seleccionados fueron: \n" +
+                nombrePedido + "\n" + nombreAcompañamiento + "\n" + nombreBebida);
+        System.out.println("El subtotal sin descuentos es de: " + subtotal);
+        System.out.println("Los descuentos aplicados fueron");
+        System.out.println("Descuento combo -$" + descuentoCombo);
+        System.out.println("Descuento martes -$" + precioDescuentoMartes);
+        System.out.println("Descuento fidelidad -$" + descuentoFidelidad);
+        System.out.println("El monto total a pagar es $" +total);
+      }
+}
+</code>
+</pre>
+<h2 class="titulos">Explicación del codigo:</h2>
+
+    <p class="explicacion">Código en Java que sistematiza la toma de órdenes en un restaurante de comida rápida, mirando
+qué tipo de plato quiere el cliente y si quiere adiciones. Con base en toda esta información, que se captura por la
+consola mediante el Scanner, el sistema usa una serie de condicionales para calcular el descuento que se le debe
+aplicar en total a la orden. Hay descuentos para los miembros, los días martes, compras grandes, etc. Este código
+es simple en cuanto a las herramientas que usa, pero esto no quita que use inteligentemente los datos y los
+condicionales para poder realizar cosas complejas a partir de bloques de código que se unen mediante el uso de la
+lógica para formar este interesante producto final.</p>
+
+  </main>
+  <!-- footer -->
+  <footer>
+    <h3>contactanos en nuestras redes</h3>
+    <div class="redes">
+      <img src="imagenes/IG-Logo-PNG-Transparent-Image.png" alt="ig">
+      <img src="imagenes/fb1.png" alt="facebook">
+      <img src="imagenes/wpp2.png" alt="wpp">
+    </div>
+
+
+  </footer>
+
+
+</body>
+
+</html>
